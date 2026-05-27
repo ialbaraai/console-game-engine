@@ -1,56 +1,39 @@
-# CONSOLE GAME ENGINE
+# Console Game Engine
 
-A simple yet powerful console-based game engine written in C++
-Supports player movement, item pickup, monster AI, and turn-based combat
+A simple, console-based game engine written in C++17, built entirely without external libraries.
 
--------------------------------------------------------------------------
+## Features
+ - ASCII map loading from `.txt` files in `assets/` directory
+ - Player movement with WASD, wall collision, and bounds checking
+ - Monster Ai with basic pathfinding toward the player
+ - Turn-based combat with HP tracking
+ - Item pickup and invetory system
 
-## OVERVIEW
+## Dependencies
+ - C++17 Standard Library (`vector`, `map`, `string`, `fstream`, `iostream`)
 
-This is a *fully functional console-based game engine* that allows developers to:
+## Building
+```bash
+cmake -S . -B build
+cd build
+make
+./game
+```
 
- - Create maps using `.txt` files
- - Place entities like monsters and items
- - Implement player movement and interaction
- - Add inventory and combat systems
+## Usage
+Place your map as a `.txt` file inside the `assets/` director, then intialize and run the game:
+```cpp
+Game game(const std::string& Your_Map_Filepath, Player *Your_Player, std::vector<Entity> *Your_Entities_Vector, std::vector<Item> *Your_Items_Vector, bool combat, bool collide, bool end);
+game.run();
+```
+---
 
-All built entirely with C++ without using any external libraries.
+## License
 
--------------------------------------------------------------------------
+This project is licensed under the MIT License. See [LICENSE](./LICENSE) for details.
 
-## FEATURES
+---
 
-| Feature | Description |
-|---------|-------------|
-| **Map System** | Loads ASCII maps from `.txt` files |
-| **Player Movement** | WASD keys, bounds checking, wall collision |
-| **Monster A.I.** | Enemies move towards the player intelligently |
-| **Combat System** | Turn-based battle with HP tracking |
-| **Item Pickup** | Collect items and track them in inventory |
-| **Inventory System** | Shows collected items (e.g. "Bread x2", "Sword x1") |
-| **Collision Detection** | Detects when the player hits walls, items, or enemies |
+## Author
 
--------------------------------------------------------------------------
-
-## TECHNOLOGIES USED
-
- - **C++17**
- - **Standard Template Library (STL)**: `map`, `vector`, `string`, `fstream`, `iostream`
- - **Object-Oriented Programming (OOP)**: Structured around `Game`, `Player`, `Entity`, `Item` classes
- - **FileIO**: Load maps from a `.txt` file
-
--------------------------------------------------------------------------
-
-## GETTING STARTED
-
-### PREREQUISITES
-
- - **C++ Compiler**: `g++`, `clang++`, `MSVC`
- - **Terminal** or command-line interface access
-
-### BUILD INSTRUCTIONS
-
-To compile and run the app from project root:
-
-`g++ src/main.cpp include/Game.cpp include/Player.cpp include/Entity.cpp include/Item.cpp -o game`
-`./game`
+**albaraa** — [@ialbaraai](https://github.com/ialbaraai)
